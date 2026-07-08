@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLife // 程序员的个人空间</title>
+    <style>
+        /* 全局变量与复位 */
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-color: #58a6ff;
+            --border-color: #21262d;
+            --card-bg: #161b22;
+            --code-bg: #21262d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 头部区域 */
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #58a6ff, #bc8cff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        nav a {
+            margin-right: 1rem;
+            color: var(--text-muted);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 文章列表区域 */
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            margin-bottom: 3rem;
+        }
+
+        .post-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .post-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        .post-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .post-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            font-family: monospace;
+            font-size: 0.75rem;
+            background-color: var(--code-bg);
+            color: var(--accent-color);
+            padding: 0.1rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        /* 页脚 */
+        footer {
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <div class="profile">
+                <div class="avatar">&lt;/&gt;</div>
+                <div>
+                    <h1>Hello, I'm Alex.</h1>
+                    <p class="bio">全栈开发工程师 / 开源爱好者 / 偶尔写写有 bug 的代码</p>
+                </div>
+            </div>
+            <nav>
+                <a href="#posts">文章</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="mailto:your-email@example.com">邮件</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="section-title">Recent Posts</div>
+            
+            <div class="post-list" id="posts">
+                
+                <article class="post-item">
+                    <div class="post-meta">2026-07-05 &bull; 8 min read</div>
+                    <a href="#" class="post-title">深入理解 JavaScript 中的事件循环与微任务队列</a>
+                    <p class="post-desc">从底层 V8 引擎的视角，重新拆解 MacroTask 与 MicroTask 的执行顺序与浏览器渲染时机。</p>
+                    <div class="tags">
+                        <span class="tag">#javascript</span>
+                        <span class="tag">#v8</span>
+                    </div>
+                </article>
+
+                <article class="post-item">
+                    <div class="post-meta">2026-06-20 &bull; 5 min read</div>
+                    <a href="#" class="post-title">为什么我从 Webpack 转向了 Vite？</a>
+                    <p class="post-desc">聊聊大型前端项目构建工具的迁移痛点，以及生产环境下的性能数据对比。</p>
+                    <div class="tags">
+                        <span class="tag">#frontend</span>
+                        <span class="tag">#vite</span>
+                    </div>
+                </article>
+
+                <article class="post-item">
+                    <div class="post-meta">2026-05-14 &bull; 12 min read</div>
+                    <a href="#" class="post-title">基于 Go 语言实现一个轻量级的分布式 KV 存储</a>
+                    <p class="post-desc">本篇将带你用 500 行 Go 代码实现 Raft 协议的核心状态机，搞懂分布式共识机制。</p>
+                    <div class="tags">
+                        <span class="tag">#go</span>
+                        <span class="tag">#distributed-system</span>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Alex. Powered by clean HTML & CSS.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
